@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* dark mode elements */
+  --color-blue-1: hsl(209, 23%, 22%);
+
+  /* dark mode background */
+  --color-blue-2: hsl(207, 26%, 17%);
+
+  /* light mode text */
+  --color-gray-1: hsl(200, 15%, 8%);
+
+  /* light mode input */
+  --color-gray-2: hsl(0, 0%, 52%);
+
+  /* light mode background */
+  --color-gray-3: hsl(0, 0%, 98%);
+
+  /* dark mode text & light mode elements */
+  --white: hsl(0, 0%, 100%);
+}
