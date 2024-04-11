@@ -1,3 +1,5 @@
+import Outlet from "react-router-dom";
+
 import Header from "./Header";
 import Main from "./Main";
 
@@ -6,7 +8,7 @@ function AppLayout() {
     <>
       <Header />
       <Main>
-        <p>Main Content</p>
+        <Outlet />
       </Main>
     </>
   );
