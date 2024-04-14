@@ -1,6 +1,7 @@
-import { Form, useActionData, useLoaderData } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 
-import { getCountries, getCountry } from "../services/apiCountries";
+import { useCountries } from "../hooks/useCountries";
+import { getCountry } from "../services/apiCountries";
 
 import SearchInput from "../components/SearchInput";
 import SelectInput from "../components/SelectInput";
@@ -8,8 +9,8 @@ import CountryCard from "../components/CountryCard";
 import CustomError from "../components/CustomError";
 
 function Home() {
-  const countries = useLoaderData();
   const searchedCountry = useActionData();
+  const { countries, region, setRegion } = useCountries();
 
   if (searchedCountry?.error)
     return (
@@ -22,7 +23,7 @@ function Home() {
     <>
       <Form method="POST" className="flex flex-col gap-8 px-4">
         <SearchInput />
-        <SelectInput />
+        <SelectInput region={region} setRegion={setRegion} />
       </Form>
 
       {searchedCountry ? (
@@ -36,12 +37,12 @@ function Home() {
   );
 }
 
-export async function loader() {
-  const data = await getCountries();
-  return data;
-}
+// export async function loader() {
+//   const data = await getCountries();
+//   return data;
+// }
 
-export async function action({ request }) {
+export async function action({ request, params }) {
   const formData = await request.formData();
   const { countryName } = Object.fromEntries(formData);
 

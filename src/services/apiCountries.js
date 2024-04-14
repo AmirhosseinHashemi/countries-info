@@ -1,4 +1,4 @@
-const ALL_COUNTRIES_API = "https://restcountries.com/v3.1/all";
+// const ALL_COUNTRIES_API = "https://restcountries.com/v3.1/all";
 const ALL_COUNTRIES_FILTERED_DATA =
   "https://restcountries.com/v3.1/all?fields=name,capital,population,region,flags";
 const COUNTRY_API = "https://restcountries.com/v3.1/name"; // + /countryName

@@ -1,12 +1,14 @@
-function SelectInput() {
+function SelectInput({ region, setRegion }) {
   return (
     <label htmlFor="filterByRegion" className="relative">
       <select
+        value={region}
+        onChange={(e) => setRegion(e.target.value)}
         name="region"
         id="filterByRegion"
         className="rounded-md py-4 pl-8 pr-20 text-sm font-medium text-neutral-gray-1 shadow-sm focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral-gray-2"
       >
-        <option value="">Filter by Region</option>
+        <option value="all">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>
