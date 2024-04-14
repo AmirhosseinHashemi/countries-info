@@ -1,6 +1,7 @@
 import { Form } from "react-router-dom";
 import SearchInput from "../components/SearchInput";
 import SelectInput from "../components/SelectInput";
+import CountryCard from "../components/CountryCard";
 
 function Home() {
   return (
@@ -9,7 +10,7 @@ function Home() {
         <SearchInput />
         <SelectInput />
       </Form>
-      <h2 className="mt-10">Home Page</h2>
+      <CountryCard />
     </>
   );
 }
