@@ -10,7 +10,7 @@ function CountryCard({ country }) {
   } = country;
 
   return (
-    <div className="m-auto mt-6 max-w-64 shadow-md active:shadow-sm">
+    <li className="m-auto max-w-64 shadow-md active:shadow-sm">
       <img
         src={svg}
         alt={alt}
@@ -38,7 +38,7 @@ function CountryCard({ country }) {
           <span className="text-neutral-gray-2">{capital || "--"}</span>
         </p>
       </div>
-    </div>
+    </li>
   );
 }
 
