@@ -1,33 +1,77 @@
+import { useLoaderData } from "react-router-dom";
+
+import { getCountry } from "../services/apiCountries";
+import { formatNumber } from "../utils/helper";
+
 import BackButton from "../components/BackButton";
 import BorderButton from "../components/BorderButton";
 import DataParagraph from "../components/DataParagraph";
-import { formatNumber } from "../utils/helper";
 
 function Country() {
+  const [
+    {
+      capital,
+      population,
+      region,
+      subregion,
+      borders,
+      tld,
+      currencies,
+      languages,
+      name: { common: commonName, nativeName },
+      flags: { svg: countryFlag, alt },
+    },
+  ] = useLoaderData();
+
+  const formattedData = {
+    commonName,
+    nativeName: Object.entries(nativeName).at(0).at(1).common,
+    currency: Object.entries(currencies).at(0).at(1).name,
+    domain: tld.at(0),
+    borders,
+    subregion,
+    region,
+    population,
+    capital: capital.at(0),
+    languages: Object.entries(languages).at(0).at(1),
+  };
+
   return (
     <section className="px-4">
       <BackButton />
 
       {/* country countainer */}
       <div className="flex flex-col gap-12">
-        <img src="/ir.svg" alt="ir" className="mt-14" />
+        <img src={countryFlag} alt={alt} className="mt-14" />
         {/* main data */}
         <div className="flex flex-col gap-2">
           <h2 className="mb-3 text-3xl font-extrabold text-neutral-gray-1">
-            Iran
+            {formattedData.commonName}
           </h2>
-          <DataParagraph dataType="Native Name" value="Iran" />
-          <DataParagraph dataType="population" value={formatNumber(8000000)} />
-          <DataParagraph dataType="region" value="asia" />
-          <DataParagraph dataType="sub region" value="asia" />
-          <DataParagraph dataType="capital" value="tehran" />
+          <DataParagraph
+            dataType="Native Name"
+            value={formattedData.nativeName}
+          />
+          <DataParagraph
+            dataType="population"
+            value={formatNumber(formattedData.population)}
+          />
+          <DataParagraph dataType="region" value={formattedData.region} />
+          <DataParagraph
+            dataType="sub region"
+            value={formattedData.subregion}
+          />
+          <DataParagraph dataType="capital" value={formattedData.capital} />
         </div>
 
         {/* secondary data */}
         <div className="flex flex-col gap-2">
-          <DataParagraph dataType="top level domain" value=".ir" />
-          <DataParagraph dataType="currencies" value="rial" />
-          <DataParagraph dataType="language" value="persian" />
+          <DataParagraph
+            dataType="top level domain"
+            value={formattedData.domain}
+          />
+          <DataParagraph dataType="currencies" value={formattedData.currency} />
+          <DataParagraph dataType="language" value={formattedData.languages} />
         </div>
 
         {/* borders */}
@@ -35,15 +79,27 @@ function Country() {
           <p className="col-span-3 text-base font-semibold capitalize text-neutral-gray-1">
             Border Countries:
           </p>
-          <BorderButton>Afghanestan</BorderButton>
-          <BorderButton>Armanestan</BorderButton>
-          <BorderButton>Iraq</BorderButton>
-          <BorderButton>Turkey</BorderButton>
-          <BorderButton>Azerbaijan</BorderButton>
+          {formattedData.borders ? (
+            formattedData.borders.map((item) => (
+              <BorderButton key={item}>{item}</BorderButton>
+            ))
+          ) : (
+            <p className="col-span-3 text-sm font-semibold text-neutral-gray-2">
+              There are no borders
+            </p>
+          )}
         </div>
       </div>
     </section>
   );
+}
+
+export async function loader({ params }) {
+  const countryName = params.countryName;
+  const countryData = await getCountry(countryName);
+
+  if (!countryData) throw new Error(`${countryName} Not Found 404`);
+  else return countryData;
 }
 
 export default Country;
