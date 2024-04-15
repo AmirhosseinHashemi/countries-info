@@ -1,4 +1,4 @@
-import { Form, useActionData } from "react-router-dom";
+import { Form, redirect, useActionData } from "react-router-dom";
 
 import { useCountries } from "../hooks/useCountries";
 import { getCountry } from "../services/apiCountries";
@@ -37,17 +37,14 @@ function Home() {
   );
 }
 
-// export async function loader() {
-//   const data = await getCountries();
-//   return data;
-// }
-
-export async function action({ request, params }) {
+export async function action({ request }) {
   const formData = await request.formData();
   const { countryName } = Object.fromEntries(formData);
 
-  const countryData = await getCountry(countryName);
-  return countryData || { error: "Not Found 404", countryName };
+  return redirect(`country/${countryName}`);
+
+  // const countryData = await getCountry(countryName);
+  // return countryData || { error: "Not Found 404", countryName };
 }
 
 export default Home;

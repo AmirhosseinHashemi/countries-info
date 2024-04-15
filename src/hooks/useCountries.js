@@ -3,7 +3,7 @@ import { getCountries, getCountriesByRegion } from "../services/apiCountries";
 
 const DEFAULT_REGION = "all";
 
-export function useCountries(searchedCountry) {
+export function useCountries() {
   const [region, setRegion] = useState(DEFAULT_REGION);
   const [countries, setCountries] = useState([]);
 
@@ -19,7 +19,7 @@ export function useCountries(searchedCountry) {
       }
       fetchData();
     },
-    [region, searchedCountry],
+    [region],
   );
 
   return { countries, region, setRegion };
