@@ -1,4 +1,5 @@
 import { formatNumber } from "../utils/helper";
+import DataParagraph from "./DataParagraph";
 
 function CountryCard({ country }) {
   const {
@@ -21,22 +22,9 @@ function CountryCard({ country }) {
         <h2 className="mb-4 text-lg font-bold text-neutral-gray-1">
           {commonName || "--"}
         </h2>
-
-        <p className="text-sm font-semibold text-neutral-gray-1">
-          population:
-          <span className="text-neutral-gray-2">
-            {formatNumber(population) || "--"}
-          </span>
-        </p>
-
-        <p className="text-sm font-semibold text-neutral-gray-1">
-          Region: <span className="text-neutral-gray-2">{region || "--"}</span>
-        </p>
-
-        <p className="text-sm font-semibold text-neutral-gray-1">
-          Capital:{" "}
-          <span className="text-neutral-gray-2">{capital || "--"}</span>
-        </p>
+        <DataParagraph dataType="Population" value={formatNumber(population)} />
+        <DataParagraph dataType="Region" value={region} />
+        <DataParagraph dataType="Capital" value={capital} />
       </div>
     </li>
   );
