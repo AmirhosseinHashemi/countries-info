@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { formatNumber } from "../utils/helper";
 import DataParagraph from "./DataParagraph";
 
 function CountryCard({ country }) {
+  const navigate = useNavigate();
   const {
     name: { common: commonName },
     flags: { svg, alt },
@@ -10,8 +12,15 @@ function CountryCard({ country }) {
     region,
   } = country;
 
+  function handleClick() {
+    navigate(`country/${commonName}`);
+  }
+
   return (
-    <li className="m-auto w-60 rounded-md shadow-md active:shadow-sm">
+    <li
+      onClick={handleClick}
+      className="m-auto w-60 cursor-pointer rounded-md shadow-md active:shadow-sm"
+    >
       <img
         src={svg}
         alt={alt}
