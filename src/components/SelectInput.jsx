@@ -1,6 +1,6 @@
 function SelectInput({ region, setRegion }) {
   return (
-    <label htmlFor="filterByRegion" className="relative">
+    <label htmlFor="filterByRegion" className="relative self-start">
       <select
         value={region}
         onChange={(e) => setRegion(e.target.value)}
@@ -22,7 +22,7 @@ function SelectInput({ region, setRegion }) {
         viewBox="0 0 24 24"
         strokeWidth={2}
         stroke="currentColor"
-        className="absolute left-1/2 top-1/2 h-3 w-3 -translate-y-1/2"
+        className="absolute right-8 top-1/2 h-3 w-3 -translate-y-1/2"
       >
         <path
           strokeLinecap="round"
