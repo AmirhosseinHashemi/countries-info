@@ -1,11 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 
-import { getCountry } from "../services/apiCountries";
+import { getCountry, getCountryByCode } from "../services/apiCountries";
 import { formatNumber } from "../utils/helper";
 
 import BackButton from "../components/BackButton";
 import BorderButton from "../components/BorderButton";
 import DataParagraph from "../components/DataParagraph";
+
+const COUNTRY_CODE_REGEX = /^[A-Z]{2,4}$/;
 
 function Country() {
   const [
@@ -96,7 +98,11 @@ function Country() {
 
 export async function loader({ params }) {
   const countryName = params.countryName;
-  const countryData = await getCountry(countryName);
+  let countryData;
+
+  if (COUNTRY_CODE_REGEX.test(countryName))
+    countryData = await getCountryByCode(countryName);
+  else countryData = await getCountry(countryName);
 
   if (!countryData) throw new Error(`${countryName} Not Found 404`);
   else return countryData;
