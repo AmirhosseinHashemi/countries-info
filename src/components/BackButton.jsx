@@ -5,7 +5,7 @@ function BackButton({ position }) {
 
   return (
     <button
-      onClick={() => navigate("/")}
+      onClick={() => navigate(-1)}
       className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold shadow active:shadow-sm ${position || ""}`}
     >
       <svg
