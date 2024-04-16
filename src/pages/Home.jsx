@@ -5,10 +5,10 @@ import { useCountries } from "../hooks/useCountries";
 import SearchInput from "../components/SearchInput";
 import SelectInput from "../components/SelectInput";
 import CountriesList from "../components/CountriesList";
+import Spinner from "../components/Spinner";
 
 function Home() {
-  const { countries, region, setRegion } = useCountries();
-
+  const { countries, region, setRegion, isLoading } = useCountries();
   return (
     <div className="flex flex-col gap-6">
       <Form method="POST" className="flex flex-col gap-8 px-4">
@@ -16,7 +16,7 @@ function Home() {
         <SelectInput region={region} setRegion={setRegion} />
       </Form>
 
-      <CountriesList data={countries} />
+      {isLoading ? <Spinner /> : <CountriesList data={countries} />}
     </div>
   );
 }
