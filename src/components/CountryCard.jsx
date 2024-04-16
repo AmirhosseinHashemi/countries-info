@@ -13,7 +13,7 @@ function CountryCard({ country }) {
   } = country;
 
   function handleClick() {
-    navigate(`country/${commonName}`);
+    navigate(`country/${commonName.toLowerCase()}`);
   }
 
   return (
@@ -29,7 +29,7 @@ function CountryCard({ country }) {
 
       <div className="rounded-bl-md rounded-br-md border-t bg-white px-6 pb-10 pt-4 capitalize">
         <h2 className="mb-4 text-lg font-bold text-neutral-gray-1">
-          {commonName || "--"}
+          <button>{commonName || "--"}</button>
         </h2>
         <DataParagraph dataType="Population" value={formatNumber(population)} />
         <DataParagraph dataType="Region" value={region} />
