@@ -35,7 +35,7 @@ function Country() {
     region,
     population,
     capital: capital.at(0),
-    languages: Object.entries(languages).at(0).at(1),
+    languages: Object.values(languages).join(", "),
   };
 
   return (
