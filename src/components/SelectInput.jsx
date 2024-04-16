@@ -1,7 +1,8 @@
-function SelectInput({ region, setRegion }) {
+function SelectInput({ region, setRegion, disabled }) {
   return (
     <label htmlFor="filterByRegion" className="relative self-start">
       <select
+        disabled={disabled}
         value={region}
         onChange={(e) => setRegion(e.target.value)}
         name="region"

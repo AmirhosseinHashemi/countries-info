@@ -1,4 +1,4 @@
-function SearchInput() {
+function SearchInput({ disabled }) {
   return (
     <label htmlFor="searchInput" className="relative">
       <input
@@ -7,6 +7,7 @@ function SearchInput() {
         className="inset-0 w-full rounded-md py-4 pl-16 pr-6 text-sm font-normal text-neutral-gray-2 shadow-sm focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral-gray-2"
         type="search"
         placeholder="Search for a country..."
+        disabled={disabled}
       />
 
       <svg

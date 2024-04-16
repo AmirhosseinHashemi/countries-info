@@ -12,8 +12,12 @@ function Home() {
   return (
     <div className="flex flex-col gap-6">
       <Form method="POST" className="flex flex-col gap-8 px-4">
-        <SearchInput />
-        <SelectInput region={region} setRegion={setRegion} />
+        <SearchInput disabled={isLoading} />
+        <SelectInput
+          region={region}
+          setRegion={setRegion}
+          disabled={isLoading}
+        />
       </Form>
 
       {isLoading ? <Spinner /> : <CountriesList data={countries} />}
