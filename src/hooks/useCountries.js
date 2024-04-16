@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCountries, getCountriesByRegion } from "../services/apiCountries";
-
-const DEFAULT_REGION = "all";
+import { DEFAULT_REGION } from "../utils/config";
 
 export function useCountries() {
   const [region, setRegion] = useState(DEFAULT_REGION);
