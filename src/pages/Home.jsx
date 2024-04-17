@@ -11,7 +11,10 @@ function Home() {
   const { countries, region, setRegion, isLoading } = useCountries();
   return (
     <div className="flex flex-col gap-6">
-      <Form method="POST" className="flex flex-col gap-8 px-4">
+      <Form
+        method="POST"
+        className="flex flex-col gap-8 px-4 sm:flex-row sm:justify-between sm:px-0"
+      >
         <SearchInput disabled={isLoading} />
         <SelectInput
           region={region}

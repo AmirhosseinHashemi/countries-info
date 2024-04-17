@@ -6,7 +6,7 @@ function CountryCard({ country }) {
   const navigate = useNavigate();
   const {
     name: { common: commonName },
-    flags: { svg, alt },
+    flags: { png: flag, alt },
     population,
     capital,
     region,
@@ -19,16 +19,16 @@ function CountryCard({ country }) {
   return (
     <li
       onClick={handleClick}
-      className="m-auto w-60 cursor-pointer rounded-md shadow-md active:shadow-sm"
+      className="m-auto w-60 cursor-pointer rounded-md bg-white shadow-md active:shadow-sm sm:m-0 sm:w-auto sm:justify-self-stretch"
     >
       <img
-        src={svg}
+        src={flag}
         alt={alt}
-        className="max-w-full rounded-tl-md rounded-tr-md"
+        className="h-40 w-full rounded-tl-md rounded-tr-md border-b md:h-44"
       />
 
-      <div className="rounded-bl-md rounded-br-md border-t bg-white px-6 pb-10 pt-4 capitalize">
-        <h2 className="mb-4 text-lg font-bold text-neutral-gray-1">
+      <div className="rounded-bl-md rounded-br-md px-6 pb-10 pt-4 capitalize">
+        <h2 className="mb-4 text-nowrap text-left text-lg font-bold text-neutral-gray-1">
           <button>{commonName || "--"}</button>
         </h2>
         <DataParagraph dataType="Population" value={formatNumber(population)} />

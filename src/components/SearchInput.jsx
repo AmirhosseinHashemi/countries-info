@@ -1,6 +1,6 @@
 function SearchInput({ disabled }) {
   return (
-    <label htmlFor="searchInput" className="relative">
+    <label htmlFor="searchInput" className="relative sm:basis-1/3">
       <input
         name="countryName"
         id="searchInput"

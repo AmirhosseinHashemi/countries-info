@@ -43,53 +43,62 @@ function Country() {
       <BackButton />
 
       {/* country countainer */}
-      <div className="flex flex-col gap-12">
-        <img src={countryFlag} alt={alt} className="mt-14" />
-        {/* main data */}
-        <div className="flex flex-col gap-2">
-          <h2 className="mb-3 text-3xl font-extrabold text-neutral-gray-1">
+      <div className="sm-gap-x-8 flex flex-col gap-12 sm:my-14 sm:grid sm:grid-cols-2 sm:gap-y-6 md:gap-x-14">
+        <img src={countryFlag} alt={alt} className="mt-14 border sm:mt-0" />
+
+        <div className="flex flex-col gap-12 sm:grid sm:grid-cols-2 sm:gap-x-10 sm:gap-y-6 sm:self-center">
+          <h2 className="col-span-2 text-3xl font-extrabold text-neutral-gray-1">
             {formattedData.commonName}
           </h2>
-          <DataParagraph
-            dataType="Native Name"
-            value={formattedData.nativeName}
-          />
-          <DataParagraph
-            dataType="population"
-            value={formatNumber(formattedData.population)}
-          />
-          <DataParagraph dataType="region" value={formattedData.region} />
-          <DataParagraph
-            dataType="sub region"
-            value={formattedData.subregion}
-          />
-          <DataParagraph dataType="capital" value={formattedData.capital} />
-        </div>
+          {/* main data */}
+          <div className="flex flex-col gap-2">
+            <DataParagraph
+              dataType="Native Name"
+              value={formattedData.nativeName}
+            />
+            <DataParagraph
+              dataType="population"
+              value={formatNumber(formattedData.population)}
+            />
+            <DataParagraph dataType="region" value={formattedData.region} />
+            <DataParagraph
+              dataType="sub region"
+              value={formattedData.subregion}
+            />
+            <DataParagraph dataType="capital" value={formattedData.capital} />
+          </div>
 
-        {/* secondary data */}
-        <div className="flex flex-col gap-2">
-          <DataParagraph
-            dataType="top level domain"
-            value={formattedData.domain}
-          />
-          <DataParagraph dataType="currencies" value={formattedData.currency} />
-          <DataParagraph dataType="language" value={formattedData.languages} />
-        </div>
+          {/* secondary data */}
+          <div className="flex flex-col gap-2">
+            <DataParagraph
+              dataType="top level domain"
+              value={formattedData.domain}
+            />
+            <DataParagraph
+              dataType="currencies"
+              value={formattedData.currency}
+            />
+            <DataParagraph
+              dataType="language"
+              value={formattedData.languages}
+            />
+          </div>
 
-        {/* borders */}
-        <div className="grid grid-cols-3 gap-x-2 gap-y-4">
-          <p className="col-span-3 text-base font-semibold capitalize text-neutral-gray-1">
-            Border Countries:
-          </p>
-          {formattedData.borders ? (
-            formattedData.borders.map((item) => (
-              <BorderButton key={item}>{item}</BorderButton>
-            ))
-          ) : (
-            <p className="col-span-3 text-sm font-semibold text-neutral-gray-2">
-              There are no borders
+          {/* borders */}
+          <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:col-span-2 sm:mt-6 sm:grid-cols-4 lg:col-span-1">
+            <p className="col-span-3 text-base font-semibold capitalize text-neutral-gray-1 sm:col-span-4">
+              Border Countries:
             </p>
-          )}
+            {formattedData.borders ? (
+              formattedData.borders.map((item) => (
+                <BorderButton key={item}>{item}</BorderButton>
+              ))
+            ) : (
+              <p className="col-span-3 text-sm font-semibold text-neutral-gray-2">
+                There are no borders
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </section>
