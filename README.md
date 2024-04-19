@@ -1,7 +1,7 @@
-# 🌍 Country-Info
+# 🌍 Countries-Info
 
 It is one of the **[Frontend Mentor](https://www.frontendmentor.io)** challenge that I have implemented.
-I am trying to enhace my skills with implementing diffrent projects.
+I am trying to enhace my skills with implementing different projects.
 
 ## ✨ Features :
 
