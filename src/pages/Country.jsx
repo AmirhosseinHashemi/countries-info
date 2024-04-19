@@ -89,7 +89,7 @@ function Country() {
           </div>
 
           {/* borders */}
-          <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:col-span-2 sm:mt-6 sm:grid-cols-4 lg:col-span-1">
+          <div className="mb-2 grid grid-cols-3 gap-x-2 gap-y-4 sm:col-span-2 sm:mt-6 sm:grid-cols-4 lg:col-span-1">
             <p className="col-span-3 text-base font-semibold capitalize text-neutral-gray-1 dark:text-neutral-gray-3 sm:col-span-4">
               Border Countries:
             </p>
