@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useApp } from "../contexts/AppContext";
 
 function ThemeButton() {
-  const [theme, setTheme] = useState("light");
+  const { themeColor, setThemeColor } = useApp();
 
   function handleToggle() {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    themeColor === "light" ? setThemeColor("dark") : setThemeColor("light");
   }
 
   return (
     <button
-      className="flex items-center gap-2 text-sm font-medium"
+      className="flex items-center gap-2 text-sm font-medium dark:text-neutral-gray-3"
       onClick={handleToggle}
     >
-      {theme === "light" ? (
+      {themeColor === "light" ? (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"

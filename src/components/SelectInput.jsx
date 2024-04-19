@@ -7,7 +7,7 @@ function SelectInput({ region, setRegion, disabled }) {
         onChange={(e) => setRegion(e.target.value)}
         name="region"
         id="filterByRegion"
-        className="rounded-md py-4 pl-8 pr-20 text-sm font-medium text-neutral-gray-1 shadow-sm focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral-gray-2"
+        className="rounded-md py-4 pl-8 pr-20 text-sm font-medium text-neutral-gray-1 shadow-sm focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral-gray-2 dark:bg-primary-blue-1 dark:text-neutral-gray-3"
       >
         <option value="all">Filter by Region</option>
         <option value="Africa">Africa</option>
@@ -23,7 +23,7 @@ function SelectInput({ region, setRegion, disabled }) {
         viewBox="0 0 24 24"
         strokeWidth={2}
         stroke="currentColor"
-        className="absolute right-8 top-1/2 h-3 w-3 -translate-y-1/2"
+        className="absolute right-8 top-1/2 h-3 w-3 -translate-y-1/2 dark:stroke-neutral-gray-3"
       >
         <path
           strokeLinecap="round"

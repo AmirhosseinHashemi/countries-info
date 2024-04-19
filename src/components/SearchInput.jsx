@@ -4,7 +4,7 @@ function SearchInput({ disabled }) {
       <input
         name="countryName"
         id="searchInput"
-        className="inset-0 w-full rounded-md py-4 pl-16 pr-6 text-sm font-normal text-neutral-gray-2 shadow-sm focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral-gray-2"
+        className="inset-0 w-full rounded-md py-4 pl-16 pr-6 text-sm font-normal text-neutral-gray-2 shadow-sm focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral-gray-2 dark:bg-primary-blue-1 dark:text-neutral-gray-3 dark:placeholder:text-neutral-gray-3"
         type="search"
         placeholder="Search for a country..."
         disabled={disabled}
@@ -16,7 +16,7 @@ function SearchInput({ disabled }) {
         viewBox="0 0 24 24"
         strokeWidth={2}
         stroke="#858585"
-        className="absolute left-6 top-1/2 h-5 w-5 -translate-y-1/2"
+        className="absolute left-6 top-1/2 h-5 w-5 -translate-y-1/2 dark:stroke-neutral-gray-3"
       >
         <path
           strokeLinecap="round"

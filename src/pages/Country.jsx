@@ -44,10 +44,14 @@ function Country() {
 
       {/* country countainer */}
       <div className="sm-gap-x-8 flex flex-col gap-12 sm:my-14 sm:grid sm:grid-cols-2 sm:gap-y-6 md:gap-x-14">
-        <img src={countryFlag} alt={alt} className="mt-14 border sm:mt-0" />
+        <img
+          src={countryFlag}
+          alt={alt}
+          className="mt-14 border dark:border-none sm:mt-0"
+        />
 
         <div className="flex flex-col gap-12 sm:grid sm:grid-cols-2 sm:gap-x-10 sm:gap-y-6 sm:self-center">
-          <h2 className="col-span-2 text-3xl font-extrabold text-neutral-gray-1">
+          <h2 className="col-span-2 text-3xl font-extrabold text-neutral-gray-1 dark:text-white">
             {formattedData.commonName}
           </h2>
           {/* main data */}
@@ -86,7 +90,7 @@ function Country() {
 
           {/* borders */}
           <div className="grid grid-cols-3 gap-x-2 gap-y-4 sm:col-span-2 sm:mt-6 sm:grid-cols-4 lg:col-span-1">
-            <p className="col-span-3 text-base font-semibold capitalize text-neutral-gray-1 sm:col-span-4">
+            <p className="col-span-3 text-base font-semibold capitalize text-neutral-gray-1 dark:text-neutral-gray-3 sm:col-span-4">
               Border Countries:
             </p>
             {formattedData.borders ? (

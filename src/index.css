@@ -24,13 +24,13 @@
 
 body {
   overflow-x: hidden;
-  background-color: var(--color-gray-3);
 }
 
 select {
   appearance: none;
 }
 
+/* spinner */
 @keyframes rotate {
   to {
     transform: rotate(1turn);
@@ -49,4 +49,9 @@ select {
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0);
 
   animation: rotate 1.5s infinite linear;
+}
+
+/* dark mode */
+html.dark body {
+  background-color: var(--color-blue-2);
 }

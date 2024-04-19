@@ -9,7 +9,7 @@ function BorderButton({ children }) {
 
   return (
     <button
-      className="col-span-1 py-2 text-xs font-light capitalize text-neutral-gray-2 shadow active:shadow-sm"
+      className="col-span-1 py-2 text-xs font-light capitalize text-neutral-gray-2 shadow active:shadow-sm dark:bg-primary-blue-1 dark:text-neutral-gray-2"
       onClick={handleClick}
     >
       {children}

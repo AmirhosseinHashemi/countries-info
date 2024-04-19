@@ -6,7 +6,7 @@ function BackButton({ position }) {
   return (
     <button
       onClick={() => navigate(-1)}
-      className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold shadow active:shadow-sm ${position || ""}`}
+      className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold shadow active:shadow-sm dark:bg-primary-blue-1 dark:text-neutral-gray-3 ${position || ""}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
