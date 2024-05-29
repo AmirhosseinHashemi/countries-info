@@ -17,7 +17,9 @@ export function useCountries() {
             ? await getCountries()
             : await getCountriesByRegion(region);
 
-        setCountries(data);
+        if (data !== undefined) setCountries(data);
+        else setCountries([]);
+
         setIsLoading(false);
       }
       fetchData();

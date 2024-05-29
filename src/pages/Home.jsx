@@ -6,9 +6,14 @@ import SearchInput from "../components/SearchInput";
 import SelectInput from "../components/SelectInput";
 import CountriesList from "../components/CountriesList";
 import Spinner from "../components/Spinner";
+import CustomError from "../components/CustomError";
 
 function Home() {
   const { countries, region, setRegion, isLoading } = useCountries();
+
+  if (countries.length === 0)
+    return <CustomError message="Failed to fetch countries 🐞" />;
+
   return (
     <div className="flex flex-col gap-6">
       <Form
