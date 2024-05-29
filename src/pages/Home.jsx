@@ -10,10 +10,9 @@ import CustomError from "../components/CustomError";
 
 function Home() {
   const navigate = useNavigate();
-  const { countries, region, setRegion, isLoading } = useCountries();
+  const { countries, region, setRegion, isLoading, error } = useCountries();
 
-  if (countries.length === 0)
-    return <CustomError message="Failed to fetch countries 🐞" />;
+  if (error) return <CustomError message="Failed to fetch countries 🐞" />;
 
   const handleSearch = function (event) {
     event.preventDefault();

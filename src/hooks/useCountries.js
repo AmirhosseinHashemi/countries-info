@@ -5,6 +5,7 @@ import { useApp } from "../contexts/AppContext";
 
 export function useCountries() {
   const { isLoading, setIsLoading } = useApp();
+  const [error, setError] = useState(null);
   const [region, setRegion] = useState(DEFAULT_REGION);
   const [countries, setCountries] = useState([]);
 
@@ -17,8 +18,12 @@ export function useCountries() {
             ? await getCountries()
             : await getCountriesByRegion(region);
 
-        if (data !== undefined) setCountries(data);
-        else setCountries([]);
+        if (data !== undefined) {
+          setCountries(data);
+        } else {
+          setCountries([]);
+          setError("Could not fetch countries !");
+        }
 
         setIsLoading(false);
       }
@@ -27,5 +32,5 @@ export function useCountries() {
     [region, setIsLoading],
   );
 
-  return { countries, region, setRegion, isLoading };
+  return { countries, region, setRegion, isLoading, error };
 }
