@@ -5,7 +5,7 @@ function Error() {
   const error = useRouteError();
 
   return (
-    <div className="relative mt-10 flex flex-col items-center justify-center pt-20 text-neutral-gray-1">
+    <div className="relative mt-10 flex flex-col items-center justify-center pt-20 text-neutral-gray-1 dark:text-white">
       <BackButton position="absolute top-0 left-4" />
       <h2 className="text-2xl font-bold">Oops !</h2>
       <p className="text-lg font-semibold">Something went wrong 🐞</p>
