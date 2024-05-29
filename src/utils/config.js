@@ -1,4 +1,5 @@
 export const DEFAULT_REGION = "all";
+export const COUNTRY_CODE_REGEX = /^[A-Z]{2,4}$/;
 
 // API endpoints
 export const ALL_COUNTRIES_API = "https://restcountries.com/v3.1/all";
